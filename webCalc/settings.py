@@ -25,7 +25,7 @@ SECRET_KEY = '!k)f5%ga_=#^(r)f&lr#nxrl^eq=2)4f=4rgo$%#0=1xr*j1sq'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['lmm-calc.herokuapp.com','localhost','127.0.0.1']
 
 
 # Application definition
