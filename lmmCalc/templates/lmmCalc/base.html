@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Web LMM Calculator</title>
+    {% block inlineStyles %}
+      <style type="text/css">
+        small {
+          position: absolute;
+          bottom: 0;
+          text-align: center;
+        }
+      </style>
+    {% endblock inlineStyles %}
+  </head>
+  <body>
+    <h1>Linear Multistep Method Calculator</h1>
+    <div>
+      {% block content %}
+      {% endblock content %}
+    </div>
+    <div>
+      <small>Developed 2021 </small>
+    </div>
+    {% block scripts %}{% endblock scripts %}
+  </body>
+</html>

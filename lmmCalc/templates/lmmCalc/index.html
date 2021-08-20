@@ -1,0 +1,39 @@
+{% extends 'lmmCalc/base.html' %}
+{% load static %}
+
+{% block inlineStyles %}
+  <style type="text/css">
+    #next-button {
+      padding: 6px;
+      width: fit-content;
+      background-color: #8888ff;
+      color: white;
+      cursor: pointer;
+    }
+  </style>
+{% endblock inlineStyles %}
+
+
+{% block content %}
+    <form id="form" action="{% url 'lmmCalc:answer' %}" method="post">
+      {% csrf_token %}
+      <span id="formInitialContent">
+        Enter highest subscript number for α: 
+        <input 
+          type="number" 
+          name="alpha-highest" 
+          id="alpha-high"
+        /><br />
+        
+        Enter highest subscript number for β: 
+        <input type="number" name="beta-highest" /><br />
+        
+        <div onclick="createForm()" id="next-button">Next </div>
+      </span>
+    </form>
+
+{% endblock content %}
+
+{% block scripts %}
+  <script type="text/javascript" src="{% static 'lmmCalc/index.js' %}"> </script>
+{% endblock scripts %}
