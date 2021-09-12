@@ -2,36 +2,52 @@
 {% load static %}
 
 {% block inlineStyles %}
-  <style type="text/css">
+
+  <!-- <style type="text/css">
     #next-button {
       padding: 6px;
       width: fit-content;
       background-color: #8888ff;
       color: white;
       cursor: pointer;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-  </style>
+  </style> -->
 {% endblock inlineStyles %}
 
 
 {% block content %}
+<br><br>
+<div>
+  <img src="" alt="">
+</div>
+<div class="container d-flex justify-content-center"><br><br>
     <form id="form" action="{% url 'lmmCalc:answer' %}" method="post">
       {% csrf_token %}
-      <span id="formInitialContent">
-        Enter highest subscript number for α: 
-        <input 
-          type="number" 
-          name="alpha-highest" 
-          id="alpha-high"
-        /><br />
-        
-        Enter highest subscript number for β: 
-        <input type="number" name="beta-highest" /><br />
-        
-        <div onclick="createForm()" id="next-button">Next </div>
-      </span>
+      <div class="row">
+        <span id="formInitialContent">
+          <div class="form-group">
+            <h6>A sample question: <label class="font-weight-bold text-primary"> Yn+3 – Yn+2 = h/24{9Fn+3 + 19Fn+2 – 5Fn+1 + Fn}</label></h4>
+            <h6>Highest subscript number for α = 3; Highest subscript number for β = 3</h4>
+          </div>
+          <br>
+          <div class="form-group">
+            <label class="font-weight-bold"> Enter highest subscript number for α</label>
+            <input type="number" name="alpha-highest" id="alpha-high"/><br />  
+          </div>
+         
+          <div class="form-group">
+            <label class="font-weight-bold"> Enter highest subscript number for β</label>
+            <input type="number" name="beta-highest" /><br />
+          </div>
+          <div onclick="createForm()" id="next-button" class="form-group row btn btn-outline-primary ml-1">  Next</div>
+        </span>
+      </div>
     </form>
-
+  </div>
 {% endblock content %}
 
 {% block scripts %}

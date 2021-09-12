@@ -2,47 +2,88 @@
 {% load static %}
 
 {% block content %}
-  <a href="http://localhost:8000/">Back</a>
+<div class="container"><br><br>
+  <a href="http://localhost:8000/" class="btn btn-outline-primary border-radi">Back</a>
+
+  <div class="row justify-content-center mt-3">
+    <div class="">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col-4">Input Values</th>
+            <th scope="row">Values of alpha: {{ alphas }} </br>
+              Values of beta: {{ betas }} </br></th> 
+          </tr>
+        </thead>
+         
+      </table>
+    </div>
+
+    <h2 class="text-center justify-content-center">Mathematical Analysis</h2>
+    
+
+    <div class="">
+      {% if fatalError %}
+      <h3>Invalid values entered</h3>
+      {% else %}
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col"><h3 class="text-center text-primary">Test for Convergence</h3></th>
+            <th scope="col"><h3 class="text-center text-primary">Test for Error Constant and Order </h3></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">
+             
+              <ul>
+                <h4><li>Test for Consistency</li></h4>
+                <h4>Ʃαj = 0 Ʃ[jαj – βj] = 0</h4>
+
+                Consistency = {{ consistency }}</br>
+                Error = {{ error }}</br>
+
+                {% if isExplicit %}
+                It is an implicit method
+                {% else %}
+                It's an explicit method
+                {% endif %}
+                </br>
+
+                {% if isConsistent %}
+                The method is consistent
+                {% else %}
+                The method is not consistent
+                {% endif %}
+              </ul>
+              <ul>
+                <h4><li>Test for Zero Stability</li></h4>
+                {% if zeroStability %}
+                The method is zero stable because |r| <= 1 {% else %} The method is not zero stable because |r|>= 1
+                {% endif %}
+
+              </ul>
+              <h4>Therefore the method is convergent</h4>
+            </th>
+
+            <th scope="row">
+              <ul>
+                <h4><li>Test for Error Constant and Order</li></h4>
+                Error constant: {{ errorConstant }} </br>
+                The method is of order {{ order }}
+                {% endif %} 
+              </ul>
+            </th>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+
+
   
-  <h2>Input Values</h2>
-  Values of alpha: {{ alphas }} </br>
-  Values of beta: {{ betas }} </br>
-
-  <h2>Output</h2>
-  {% if fatalError %}
-    Invalid values entered 
-  {% else %}
-    <h3>Test for Convergence</h3>
-
-    <h4>Test for Consistency</h4>
-    Consistency = {{ consistency }}</br>
-    Error = {{ error }}</br>
-
-    {% if  isExplicit  %}
-      It is an implicity method
-    {% else %}
-      It's an explicit method
-    {% endif %} 
-    </br>
-
-    {% if isConsistent %}
-      The method is consistent
-    {% else %}
-      The method is not consistent
-    {% endif %}
-    </br>
-
-    {% if zeroStability %}
-      The method is zero stable because |r| <= 1
-    {% else %}
-      The method is not zero stable because |r| >= 1
-    {% endif %}
-
-    <h4>Test for Error Constant and Order </h4>
-    Error constant: {{ errorConstant }} </br>
-    The method is of order {{ order }}
-
-
-  {% endif %}
-
+</div>
 {% endblock content %}
