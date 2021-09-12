@@ -11,6 +11,7 @@ const createForm = () => {
 
   const para = document.createElement("p");
   const node = document.createTextNode("Input the values of alpha and the corresponding beta values");
+  para.classList.add('font-weight-bold');
   para.appendChild(node);
   theForm.appendChild(para);
 
@@ -42,6 +43,9 @@ const createForm = () => {
   var submitButton = document.createElement("input");
   submitButton.setAttribute("type", "submit");
   submitButton.setAttribute("value", "Submit");
+  submitButton.classList.add("btn");
+  submitButton.classList.add("btn-outline-primary");
+  submitButton.classList.add("border-radi");
   theForm.appendChild(submitButton); 
 
 }
