@@ -1,6 +1,6 @@
 # webCalc
 
-This is a web-based linear multistep method calculator built  as a final year project (2021) in collaboration with Deborah Adaramola.
+This is a web-based linear multistep method calculator built  as a final year project (2021) in collaboration with [Deborah Adaramola](https://github.com/Dee-ia).
 
 ## Setup
 
